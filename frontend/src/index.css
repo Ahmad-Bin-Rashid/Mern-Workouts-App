@@ -59,13 +59,20 @@ header a {
 .workout-details span {
   font-size: 0.9em;
   position: absolute;
-  top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #e1e1e1;
-  padding: 2px 5px;
+  background: #e5e5e5;
+  padding: 4px;
   border-radius: 10%;
-  color: #333;
+  color: #222;
+}
+
+.workout-details span.delete {
+  top: 20px;
+}
+
+.workout-details span.update {
+  bottom: 20px;
 }
 
 /* new workout form */
@@ -97,4 +104,7 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
 }
