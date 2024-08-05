@@ -1,5 +1,11 @@
 const User = require("../models/userModel");
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
+
+
+const createToken = (_id) => {
+    return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d'})
+}
 
 // get all users
 const getUsers = async (req, res) => {
@@ -41,7 +47,11 @@ const signupUser = async (req, res) => {
 
     try {
         const user = await User.signup(username, email, password)
-        res.status(200).json({email, user})
+
+        //create a jwt token
+        const token = createToken(user._id)
+
+        res.status(200).json({username, email, token})
     } 
     catch (error) {
         res.status(400).json({error: error.message})
@@ -68,3 +78,5 @@ const deleteUser = async (req, res) => {
 
 
 module.exports = { getUsers, getUser, loginUser, signupUser, deleteUser }
+
+// https://www.bilibili.tv/en/video/2044237320?bstar_from=bstar-web.ugc-video-detail.related-recommend.all
