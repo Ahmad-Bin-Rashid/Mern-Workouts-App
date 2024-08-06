@@ -96,6 +96,7 @@ form button {
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
+  align-items: center;
 }
 div.error {
   padding: 10px;
@@ -107,4 +108,30 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  padding: 4px 8px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  margin-left: 10px;
+}
+nav a:hover {
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }
