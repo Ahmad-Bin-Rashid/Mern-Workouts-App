@@ -116,15 +116,35 @@ nav {
   align-items: center;
 }
 nav a {
-  padding: 4px 8px;
+  background: #fff;
+  color: var(--primary);
   border: 2px solid var(--primary);
+  padding: 6px 10px;
   border-radius: 4px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 nav a:hover {
   background: var(--primary);
   color: #fff;
+}
+
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 1em;
+  margin-left: 15px;
+}
+nav button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+nav div span {
+  margin: auto 5px;
 }
 
 /* auth forms */
