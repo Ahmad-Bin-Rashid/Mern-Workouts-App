@@ -6,18 +6,18 @@ const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
-    const [ errors, setErrors ] = useState(null)
-    const { signup, isLoading, error } = useSignup()
+    const [ error, setError ] = useState(null)
+    const { signup, isLoading, error: backendError } = useSignup()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         
         if (password !== password2) {
-          setErrors('Both Passwords do not match!!')
+          setError('Both Passwords do not match!!')
         }
         else {
           await signup(username, email, password)
-          setErrors(error)
+          setError(backendError)
         }
     }
 
@@ -53,7 +53,7 @@ const Signup = () => {
           required/>
 
         <button disabled={isLoading}>Sign up</button>
-        {errors && <div className="error">{errors}</div>}
+        {error && <div className="error">{error}</div>}
     </form>
   )
 }
