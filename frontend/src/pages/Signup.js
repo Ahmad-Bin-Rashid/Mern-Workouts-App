@@ -16,8 +16,8 @@ const Signup = () => {
           setError('Both Passwords do not match!!')
         }
         else {
+          setError(null)
           await signup(username, email, password)
-          setError(backendError)
         }
     }
 
@@ -54,6 +54,7 @@ const Signup = () => {
 
         <button disabled={isLoading}>Sign up</button>
         {error && <div className="error">{error}</div>}
+        {backendError && <div className="error">{backendError}</div>}
     </form>
   )
 }
