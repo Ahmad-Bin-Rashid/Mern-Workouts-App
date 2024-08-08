@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 // creating JWT token
 const createToken = (_id) => {
-    return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d'})
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
 }
 
 
@@ -50,10 +50,10 @@ const loginUser = async (req, res) => {
         //create a jwt token
         const token = createToken(user._id)
 
-        res.status(200).json({username, email, token})
-    } 
+        res.status(200).json({ username, email, token })
+    }
     catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({ error: error.message })
     }
 }
 
@@ -68,10 +68,10 @@ const signupUser = async (req, res) => {
         //create a jwt token
         const token = createToken(user._id)
 
-        res.status(200).json({username, email, token})
-    } 
+        res.status(200).json({ username, email, token })
+    }
     catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({ error: error.message })
     }
 
 }
@@ -94,7 +94,7 @@ const deleteUser = async (req, res) => {
     res.status(200).json(user)
 }
 
-// update the user ---------------------------------- incomplete
+// update the user ------------------------------------------ incomplete
 const updateUser = async (req, res) => {
     const { id } = req.params
 

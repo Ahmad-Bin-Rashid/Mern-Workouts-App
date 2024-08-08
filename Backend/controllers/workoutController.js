@@ -38,9 +38,9 @@ const createWorkout = async (req, res) => {
     let [result, emptyFields] = checkEmptyFields({ title, load, reps })
 
     if (result) {
-      return res.status(400).json({ error: 'Please fill in all fields!!', emptyFields })
+        return res.status(400).json({ error: 'Please fill in all fields!!', emptyFields })
     }
-    
+
     const user_id = req.user._id
     try {
         const workout = await Workout.create({ title, load, reps, user_id })
@@ -85,7 +85,7 @@ const updateWorkout = async (req, res) => {
     res.status(200).json(workout)
 }
 
-
+// check for empty fields
 function checkEmptyFields({ title, load, reps }) {
 
     let emptyFields = []
